@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Xml;
 using YALV.Core.Domain;
 
@@ -19,7 +20,7 @@ namespace YALV.Core.Providers
 
             using (var stream = new FileStream(dataSource, FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite))
             {
-                using (var reader = new StreamReader(stream, System.Text.Encoding.Default, true))
+                using (var reader = new StreamReader(stream, Encoding.UTF8, true))
                 {
                     using (var xmlTextReader = XmlReader.Create(reader, settings, pc))
                     {
